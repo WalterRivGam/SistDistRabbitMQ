@@ -11,7 +11,9 @@ public class ClienteSolicitaProductos {
 
     public static void main(String[] argv) throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("127.0.0.1");
+        factory.setHost("ip_adress");
+        factory.setUsername("user");
+        factory.setPassword("pass");
         try (Connection connection = factory.newConnection(); Channel channel = connection.createChannel()) {
             channel.queueDeclare(QUEUE_NAME, false, false, false, null);
             String message = "getproductos";
